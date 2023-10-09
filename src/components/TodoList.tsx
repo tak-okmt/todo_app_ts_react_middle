@@ -1,7 +1,7 @@
 import { Todo } from "../App"
 
 export default function TodoList(
-  todos: Array<Todo>,
+  todos: Todo[],
   handleEditClick: any,
   handleDeleteClick: any
 ) {
