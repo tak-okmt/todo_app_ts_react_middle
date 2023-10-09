@@ -1,5 +1,7 @@
+import { Filter } from "../App";
+
 export default function FilterTodoForm(
-  filter: any,
+  filter: Filter,
   handleFilterChange: any
 ) {
   return (

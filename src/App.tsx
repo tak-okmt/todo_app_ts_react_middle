@@ -12,7 +12,7 @@ export type Todo = {
   status: "notStartYet" | "inProgress" | "completed";
 }
 
-type Filter = {
+export type Filter = {
   id?: number;
   deadline?: string;
   status?: "notStartYet" | "inProgress" | "completed";
@@ -29,7 +29,7 @@ function App() {
   const [filter, setFilter] = useState<Filter>({});
   const [filteredTodos, setFilteredTodos] = useState<Todo[]>([])
 
-  function handleFormSubmit(e: any) {
+  function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (!('title' in todo) || todo.title === '') {
@@ -52,7 +52,7 @@ function App() {
     setTodo({}); // HACK: 初期化されていない
   }
 
-  function handleInputChange(e: any) {
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     const target = e.target;
     setTodo({ ...todo, [target.name]: target.value });
   }
@@ -62,7 +62,7 @@ function App() {
     setCurrentTodo(todo);
   }
 
-  function handleEditFormSubmit(e: any) {
+  function handleEditFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if ('id' in currentTodo) {
@@ -74,7 +74,7 @@ function App() {
     }
   }
 
-  function handleEditInputChange(e: any) {
+  function handleEditInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     const target = e.target;
     setCurrentTodo({ ...currentTodo, [target.name]: target.value });
   }
@@ -84,7 +84,7 @@ function App() {
     setTodos(deletedTodos);
   }
 
-  function handleFilterChange(e: any) {
+  function handleFilterChange(e: React.ChangeEvent<HTMLInputElement>) {
     const target = e.target;
     setFilter({ ...filter, [target.name]: target.value });
   }
