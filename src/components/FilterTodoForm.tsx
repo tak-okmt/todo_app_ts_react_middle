@@ -1,8 +1,12 @@
 import { Filter } from "../App";
 
-export default function FilterTodoForm(
+export default function FilterTodoForm({
+  filter,
+  handleFilterChange
+}: {
   filter: Filter,
   handleFilterChange: any
+}
 ) {
   return (
     <>

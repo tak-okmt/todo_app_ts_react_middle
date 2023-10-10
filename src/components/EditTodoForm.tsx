@@ -1,10 +1,16 @@
 import { Todo } from "../App";
 
-export default function EditTodoForm(
+export default function EditTodoForm({
+  currentTodo,
+  setIsEditing,
+  handleEditFormSubmit,
+  handleEditInputChange
+}: {
   currentTodo: Todo,
   setIsEditing: any,
   handleEditFormSubmit: any,
   handleEditInputChange: any
+}
 ) {
   return (
     <form onSubmit={handleEditFormSubmit}>
@@ -24,8 +30,8 @@ export default function EditTodoForm(
       <textarea
         name="detail"
         id="detail"
-        cols="30"
-        rows="3"
+        cols={30}
+        rows={3}
         value={currentTodo.detail}
         onChange={handleEditInputChange}>
       </textarea>

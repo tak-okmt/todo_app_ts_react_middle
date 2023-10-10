@@ -1,9 +1,14 @@
 import { Todo } from "../App";
 
-export default function AddTodoForm(
+export default function AddTodoForm({
+  todo,
+  handleFormSubmit,
+  handleInputChange
+}: {
   todo: Todo,
   handleFormSubmit: any,
   handleInputChange: any
+}
 ) {
   return (
     <form onSubmit={handleFormSubmit}>
@@ -23,8 +28,8 @@ export default function AddTodoForm(
       <textarea
         name="detail"
         id="detail"
-        cols="30"
-        rows="3"
+        cols={30}
+        rows={3}
         value={todo.detail}
         onChange={handleInputChange}>
       </textarea>

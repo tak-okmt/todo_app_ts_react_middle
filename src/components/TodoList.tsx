@@ -1,9 +1,14 @@
 import { Todo } from "../App"
 
-export default function TodoList(
+export default function TodoList({
+  todos,
+  handleEditClick,
+  handleDeleteClick
+}: {
   todos: Todo[],
   handleEditClick: any,
   handleDeleteClick: any
+}
 ) {
   const statusForDisplay = {
     notStartYet: '未着手',

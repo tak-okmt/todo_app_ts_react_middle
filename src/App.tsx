@@ -49,7 +49,7 @@ function App() {
       setTodoId((prevId) => prevId + 1);
     }
 
-    setTodo({}); // HACK: 初期化されていない
+    setTodo({}); // HACK: state（todo）自体は初期化されているが、画面の見た目上は入力値が入ったままの状態になっている
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
