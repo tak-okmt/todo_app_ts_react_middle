@@ -91,7 +91,7 @@ function App() {
 
   const filteringTodos = () => {
     const newArray = todos.filter((todo) => {
-      if (filter.id && filter.id !== todo.id) {
+      if (filter.id && Number(filter.id) !== todo.id) { // 「handleFilterChange内でidをNumberに変換してstateへ保存する方法」もあるが、そうすると絞り込みフォームでidが未入力の時に「0」と表示されてしまうため、この方法にしている
         return false;
       }
       if (filter.deadline && filter.deadline !== todo.deadline) {
