@@ -19,15 +19,24 @@ export type Filter = {
 }
 
 function App() {
-  const [todo, setTodo] = useState<Todo | {}>({});
-  const [todos, setTodos] = useState<Todo[]>([]);
   const [todoId, setTodoId] = useState<number>(1);
+  // todoの初期化のために{}としているかと思いますが、以下のように初期化したいする用のtodoを作成しておくと良いと思います。
+  const initialTodoState: Todo = {
+    id: todoId,
+    title: '',
+    detail: '',
+    deadline: '',
+    status: 'notStartYet'
+  };
+  const [todo, setTodo] = useState<Todo>(initialTodoState);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [currentTodo, setCurrentTodo] = useState<Todo | {}>({}); // 編集中のTodoリストのstate
 
   const [filter, setFilter] = useState<Filter>({});
   const [filteredTodos, setFilteredTodos] = useState<Todo[]>([])
+
 
   function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -49,7 +58,7 @@ function App() {
       setTodoId((prevId) => prevId + 1);
     }
 
-    setTodo({}); // HACK: state（todo）自体は初期化されているが、画面の見た目上は入力値が入ったままの状態になっている
+    setTodo(initialTodoState); // HACK: state（todo）自体は初期化されているが、画面の見た目上は入力値が入ったままの状態になっている
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
